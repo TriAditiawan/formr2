@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+      @font-face {
+        font-family: "Poppins";
+        src: url(https://triaditiawan.github.io/formlogin.github.io/Poppins-Regular.ttf);
+      }
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      body {
+        font-family: "Poppins", sans-serif;
+        min-height: 100vh;
+        display: grid;
+        justify-content: center;
+        align-items: center;
+        background-color: rgb(31, 31, 31);
+      }
+
+      .grid {
+        height: 600px;
+        overflow: hidden;
+        width: 1000px;
+        border-radius: 5px;
+        box-shadow: 0px 5px 10px black;
+        background-color: #fff;
+        display: grid;
+        grid-template-columns: 0.8fr 1fr;
+      }
+      .grid .img {
+        background-image: url(./img/coding.jpg);
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        border-radius: 5px 0 0 5px;
+        position: relative;
+      }
+      .grid .img::after {
+        content: "";
+        width: 100%;
+        height: 100%;
+        top: 0;
+        position: absolute;
+        background-color: rgba(255, 255, 255, 0.1);
+        display: block;
+        z-index: 2;
+      }
+      .grid .img h2 {
+        text-shadow: 0 1px 5px black;
+        position: relative;
+        z-index: 3;
+        color: white;
+        text-shadow: 1px 1px 2px black;
+        width: 350px;
+        margin: auto;
+        padding-top: 25px;
+        font-size: 32px;
+      }
+      form {
+        width: 90%;
+        margin: 0 auto;
+      }
+
+      form .user-details {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        margin: 20px 0 12px 0;
+      }
+      form .user-details .input-box {
+        margin-bottom: 15px;
+        width: calc(100% / 2 - 20px);
+      }
+      form .input-box span.details {
+        display: block;
+        font-weight: 500;
+        margin-bottom: 5px;
+      }
+      .user-details .input-box input {
+        height: 45px;
+        width: 100%;
+        outline: none;
+        font-size: 16px;
+        border-radius: 5px;
+        padding-left: 10px;
+        border: 1px solid #ccc;
+
+        border-bottom-width: 2px;
+        transition: all 0.3s ease;
+      }
+      .user-details .input-box input:focus {
+        border-color: rgb(41, 41, 41);
+      }
+
+      .user-details .input-box input:valid {
+        border-color: rgb(49, 255, 30);
+      }
+      form .gender-details .gender-title {
+        font-size: 20px;
+        font-weight: 500;
+      }
+      form .category {
+        display: flex;
+        width: 50%;
+        margin: 14px 0;
+        justify-content: space-between;
+      }
+      form .category label {
+        display: flex;
+        align-items: center;
+        cursor: pointer;
+      }
+      form .category label .dot {
+        height: 18px;
+        width: 18px;
+        border-radius: 50%;
+        margin-right: 10px;
+        background: #d9d9d9;
+        border: 5px solid transparent;
+        transition: all 0.3s ease;
+      }
+      #dot-1:checked ~ .category label .one,
+      #dot-2:checked ~ .category label .two {
+        background: rgb(49, 255, 30);
+        border-color: #d9d9d9;
+      }
+      form input[type="radio"] {
+        display: none;
+      }
+
+      button {
+        width: 100%;
+        background: linear-gradient(135deg, rgb(41, 41, 41), rgb(80, 80, 80));
+        color: white;
+        font-size: 16px;
+        padding: 10px 0;
+        border: none;
+        border-radius: 5px;
+        margin-top: 20px;
+        margin-bottom: 15px;
+        font-weight: bold;
+        letter-spacing: 0.5px;
+        cursor: pointer;
+        border: 1px solid rgb(41, 41, 41);
+      }
+
+      button:hover {
+        background: linear-gradient(-135deg, rgb(41, 41, 41), rgb(80, 80, 80));
+        color: white;
+      }
+
+      .sign-up-text {
+        font-size: 14px;
+        letter-spacing: 0.5px;
+      }
+      .sign-up-text a {
+        text-decoration: none;
+        color: rgb(41, 41, 41);
+        cursor: pointer;
+      }
+      .login {
+        font-size: 16px;
+      }
+      .login a {
+        color: rgb(41, 41, 41);
+        font-weight: bold;
+        text-decoration: none;
+      }
+      .garis-bawah {
+        margin-top: 25px;
+        width: 75px;
+        height: 5px;
+        background-color: rgb(41, 41, 41);
+      }
+      form h2 {
+        letter-spacing: 1px;
+      }
+      @media (max-width: 576px) {
+        .grid .img h2 {
+          padding-top: 15px !important;
+          font-size: 28px !important;
+        }
+        form .category {
+          width: 80%;
+        }
+      }
+      @media (max-width: 768px) {
+        .grid {
+          display: block;
+          height: 1400px !important;
+          margin: 50px auto !important;
+        }
+        .grid .img {
+          height: 500px;
+          border-radius: 5px 5px 0 0;
+          background-position: bottom;
+        }
+        .grid .img h2 {
+          padding-top: 350px;
+          font-size: 32px;
+        }
+
+        form .user-details .input-box {
+          margin-bottom: 15px;
+          width: 100%;
+        }
+
+        .content form .user-details {
+          max-height: 300px;
+          overflow-y: scroll;
+        }
+        .user-details::-webkit-scrollbar {
+          width: 5px;
+        }
+      }
+      @media (max-width: 459px) {
+        .container .content .category {
+          flex-direction: column;
+        }
+      }
+      @media (max-width: 992px) {
+        .grid {
+          width: 95%;
+        }
+        .grid .img h2 {
+          width: 95%;
+        }
+      }
+    </style>
+    <title>Form login</title>
+  </head>
+  <body>
+    <div class="grid">
+      <div class="img">
+        <h2>
+          Learning to code <br />
+          For Beginner
+        </h2>
+      </div>
+
+      <form action="#">
+        <div class="garis-bawah"></div>
+        <h2>Registration</h2>
+        <div class="user-details">
+          <div class="input-box">
+            <span class="details">Full Name</span>
+            <input type="text" placeholder="Enter your name" required />
+          </div>
+          <div class="input-box">
+            <span class="details">Username</span>
+            <input type="text" placeholder="Enter your username" required />
+          </div>
+          <div class="input-box">
+            <span class="details">Email</span>
+            <input type="email" placeholder="Enter your email" required />
+          </div>
+          <div class="input-box">
+            <span class="details">Phone Number</span>
+            <input type="text" placeholder="Enter your number" required />
+          </div>
+          <div class="input-box">
+            <span class="details">Password</span>
+            <input type="password" placeholder="Enter your password" required />
+          </div>
+          <div class="input-box">
+            <span class="details">Confirm Password</span>
+            <input type="password" placeholder="Confirm your password" required />
+          </div>
+        </div>
+        <div class="gender-details">
+          <input type="radio" name="gender" id="dot-1" />
+          <input type="radio" name="gender" id="dot-2" />
+          <span class="gender-title">Gender</span>
+          <div class="category">
+            <label for="dot-1">
+              <span class="dot one"></span>
+              <span class="gender">Male</span>
+            </label>
+            <label for="dot-2">
+              <span class="dot two"></span>
+              <span class="gender">Female</span>
+            </label>
+          </div>
+        </div>
+        <div class="button">
+          <button type="submit" value="Register">Register</button>
+          <p class="login">Already have an account? <a href="">Login now</a></p>
+        </div>
+      </form>
+    </div>
+  </body>
+</html>
